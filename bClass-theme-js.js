@@ -1,10 +1,21 @@
-// ? scroll x mouse
-document.querySelector('ul.ul-li-x-scroll').addEventListener('wheel', function(event) {
-  if (event.deltaY === 0) return;
-
-  event.preventDefault();
-  this.scrollLeft += event.deltaY;
-});
+// ? scroll x mouse start
+document
+  .querySelector("ul.ul-li-x-scroll")
+  .addEventListener("wheel", function (event) {
+    if (event.deltaY === 0) return;
+    event.preventDefault();
+    this.scrollLeft += event.deltaY;
+  });
+// ? scroll x mouse end
+// ? scroll x mouse hidden start
+document
+  .querySelector("ul.ul-li-x-scroll-hidden")
+  .addEventListener("wheel", function (event) {
+    if (event.deltaY === 0) return;
+    event.preventDefault();
+    this.scrollLeft += event.deltaY;
+  });
+// ? scroll x mouse hidden end
 // ? before affter function start
 (() => {
   let elementsBefore = Array.from(
@@ -13,6 +24,7 @@ document.querySelector('ul.ul-li-x-scroll').addEventListener('wheel', function(e
   let elementsAfter = Array.from(
     document.querySelectorAll('[data-ba="after"]')
   );
+
   let name = "cutom-create" + new Date().getTime();
   let cssCode = ``;
   elementsBefore.forEach((element, index) => {
@@ -39,6 +51,7 @@ document.querySelector('ul.ul-li-x-scroll').addEventListener('wheel', function(e
   });
   applyCSS(cssCode);
 })();
+
 // * create css style
 function applyCSS(cssCode) {
   // * create <style>
@@ -49,6 +62,7 @@ function applyCSS(cssCode) {
   // * add <style>
   document.head.appendChild(styleElement);
 }
+
 // * class list
 function listClasses(element) {
   // * string to arr
@@ -60,6 +74,7 @@ function listClasses(element) {
   });
   return res;
 }
+
 function findCSSClass(className) {
   // * find class css
   const styleSheets = document.styleSheets;
@@ -90,3 +105,47 @@ function findCSSClass(className) {
   }
 }
 // ? before affter function end
+
+// ! edit.. jq ?
+
+// // * create cookie
+// function setCookie(cookieName, cookieValue, numdaystilexpireasinteger) {
+//   const d = new Date();
+//   d.setTime(d.getTime() + numdaystilexpireasinteger * 24 * 60 * 60 * 1000);
+//   const expires = "expires=" + d.toUTCString();
+//   document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+// }
+
+// // * get cookie
+// function getCookie(cookieName) {
+//   const name = cookieName + "=";
+//   const decodedCookie = decodeURIComponent(document.cookie);
+//   const ca = decodedCookie.split(";");
+//   for (var i = 0; i < ca.length; i++) {
+//     const c = ca[i];
+//     while (c.charAt(0) == " ") {
+//       c = c.substring(1);
+//     }
+//     if (c.indexOf(name) == 0) {
+//       return c.substring(name.length, c.length);
+//     }
+//   }
+//   return "";
+// }
+
+// // * check coockie
+// function checkCookiesConfirmation() {
+//   const x = getCookie("cookies-confirmation"); //call cookie to get its value
+//   if (x != "") {
+//     $(".cookies-confirmation").remove();
+//   } else {
+//     setCookie("cookies-confirmation", "yes", 2);
+//     // * reel app remove comment
+//     // $(".cookies-confirmation").remove();
+//   }
+// }
+
+// // * start check coockie
+// setTimeout(function () {
+//   checkCookiesConfirmation();
+// }, 5000);
