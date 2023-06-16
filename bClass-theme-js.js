@@ -13,7 +13,6 @@ document.querySelector('ul.ul-li-x-scroll').addEventListener('wheel', function(e
   let elementsAfter = Array.from(
     document.querySelectorAll('[data-ba="after"]')
   );
-
   let name = "cutom-create" + new Date().getTime();
   let cssCode = ``;
   elementsBefore.forEach((element, index) => {
@@ -40,7 +39,6 @@ document.querySelector('ul.ul-li-x-scroll').addEventListener('wheel', function(e
   });
   applyCSS(cssCode);
 })();
-
 // * create css style
 function applyCSS(cssCode) {
   // * create <style>
@@ -51,7 +49,6 @@ function applyCSS(cssCode) {
   // * add <style>
   document.head.appendChild(styleElement);
 }
-
 // * class list
 function listClasses(element) {
   // * string to arr
@@ -63,7 +60,6 @@ function listClasses(element) {
   });
   return res;
 }
-
 function findCSSClass(className) {
   // * find class css
   const styleSheets = document.styleSheets;
