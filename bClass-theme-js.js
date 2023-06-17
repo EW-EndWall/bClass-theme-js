@@ -1,29 +1,14 @@
-// ? scroll x mouse start
-const ul_ul_li_x_scroll = document.querySelectorAll("ul.ul-li-x-scroll");
-if (ul_ul_li_x_scroll) {
-  ul_ul_li_x_scroll.forEach(function (element) {
+// ? scroll x mouse | scroll x mouse hidden start
+document
+  .querySelectorAll("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden")
+  .forEach(function (element) {
     element.addEventListener("wheel", function (event) {
       if (event.deltaY === 0) return;
       event.preventDefault();
       this.scrollLeft += event.deltaY;
     });
   });
-}
-// ? scroll x mouse end
-// ? scroll x mouse hidden start
-const ul_ul_li_x_scroll_hidden = document.querySelectorAll(
-  "ul.ul-li-x-scroll-hidden"
-);
-if (ul_ul_li_x_scroll_hidden) {
-  ul_ul_li_x_scroll_hidden.forEach(function (element) {
-    element.addEventListener("wheel", function (event) {
-      if (event.deltaY === 0) return;
-      event.preventDefault();
-      this.scrollLeft += event.deltaY;
-    });
-  });
-}
-// ? scroll x mouse hidden end
+// ? scroll x mouse | scroll x mouse hidden end
 // ? before affter function start
 (() => {
   let elementsBefore = Array.from(
