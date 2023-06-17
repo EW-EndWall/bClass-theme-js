@@ -1,20 +1,29 @@
+// ! secici bulamaynca hata veriyo https://codepen.io/Endwall/pen/wvYNeMG ve bu tekli seciciydi sanırım onada dikat et coklu olması lazım
 // ? scroll x mouse start
-document
-  .querySelector("ul.ul-li-x-scroll")
-  .addEventListener("wheel", function (event) {
-    if (event.deltaY === 0) return;
-    event.preventDefault();
-    this.scrollLeft += event.deltaY;
+const ul_ul_li_x_scroll = document.querySelectorAll("ul.ul-li-x-scroll");
+if (ul_ul_li_x_scroll) {
+  ul_ul_li_x_scroll.forEach(function (element) {
+    element.addEventListener("wheel", function (event) {
+      if (event.deltaY === 0) return;
+      event.preventDefault();
+      this.scrollLeft += event.deltaY;
+    });
   });
+}
 // ? scroll x mouse end
 // ? scroll x mouse hidden start
-document
-  .querySelector("ul.ul-li-x-scroll-hidden")
-  .addEventListener("wheel", function (event) {
-    if (event.deltaY === 0) return;
-    event.preventDefault();
-    this.scrollLeft += event.deltaY;
+const ul_ul_li_x_scroll_hidden = document.querySelectorAll(
+  "ul.ul-li-x-scroll-hidden"
+);
+if (ul_ul_li_x_scroll_hidden) {
+  ul_ul_li_x_scroll_hidden.forEach(function (element) {
+    element.addEventListener("wheel", function (event) {
+      if (event.deltaY === 0) return;
+      event.preventDefault();
+      this.scrollLeft += event.deltaY;
+    });
   });
+}
 // ? scroll x mouse hidden end
 // ? before affter function start
 (() => {
