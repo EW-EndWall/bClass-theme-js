@@ -1,4 +1,3 @@
-// ! secici bulamaynca hata veriyo https://codepen.io/Endwall/pen/wvYNeMG ve bu tekli seciciydi sanırım onada dikat et coklu olması lazım
 // ? scroll x mouse start
 const ul_ul_li_x_scroll = document.querySelectorAll("ul.ul-li-x-scroll");
 if (ul_ul_li_x_scroll) {
