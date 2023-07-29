@@ -1,16 +1,26 @@
-// ? scroll x mouse | scroll x mouse hidden start
-document
-  .querySelectorAll("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden")
-  .forEach(function (element) {
-    element.addEventListener("wheel", function (event) {
-      if (event.deltaY === 0) return;
-      event.preventDefault();
-      this.scrollLeft += event.deltaY;
-    });
-  });
-// ? scroll x mouse | scroll x mouse hidden end
-// ? before affter function start
+/* * Bclass theme js v1.0.0 (--)
+ * * Copyright 2021-2023 The Bclass Authors
+ * * Licensed (--)
+ * * Update (--)
+ */
 (() => {
+  // * current year
+  document.querySelectorAll(".current-year").forEach((element) => {
+    element.innerText += new Date().getFullYear();
+  });
+  // * -----------------------------------------------------
+  // * scroll x mouse | scroll x mouse hidden
+  document
+    .querySelectorAll("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden")
+    .forEach(function (element) {
+      element.addEventListener("wheel", function (event) {
+        if (event.deltaY === 0) return;
+        event.preventDefault();
+        this.scrollLeft += event.deltaY;
+      });
+    });
+  // * -----------------------------------------------------
+  // * before affter function
   let elementsBefore = Array.from(
     document.querySelectorAll('[data-ba="before"]')
   );
@@ -43,102 +53,105 @@ document
     element.classList.add(className);
   });
   applyCSS(cssCode);
-})();
 
-// * create css style
-function applyCSS(cssCode) {
-  // * create <style>
-  let styleElement = document.createElement("style");
-  styleElement.type = "text/css";
-  styleElement.appendChild(document.createTextNode(cssCode));
+  // * create css style
+  function applyCSS(cssCode) {
+    // * create <style>
+    let styleElement = document.createElement("style");
+    styleElement.type = "text/css";
+    styleElement.appendChild(document.createTextNode(cssCode));
 
-  // * add <style>
-  document.head.appendChild(styleElement);
-}
+    // * add <style>
+    document.head.appendChild(styleElement);
+  }
 
-// * class list
-function listClasses(element) {
-  // * string to arr
-  const otherClasses = element.split(" ");
-  let res = "";
-  // * get all class css
-  otherClasses.forEach((className) => {
-    res += findCSSClass(className);
-  });
-  return res;
-}
+  // * class list
+  function listClasses(element) {
+    // * string to arr
+    const otherClasses = element.split(" ");
+    let res = "";
+    // * get all class css
+    otherClasses.forEach((className) => {
+      res += findCSSClass(className);
+    });
+    return res;
+  }
 
-function findCSSClass(className) {
-  // * find class css
-  const styleSheets = document.styleSheets;
+  function findCSSClass(className) {
+    // * find class css
+    const styleSheets = document.styleSheets;
 
-  for (let i = 0; i < styleSheets.length; i++) {
-    const styleSheet = styleSheets[i];
+    for (let i = 0; i < styleSheets.length; i++) {
+      const styleSheet = styleSheets[i];
 
-    if (styleSheet.cssRules) {
-      const cssRules = styleSheet.cssRules;
+      if (styleSheet.cssRules) {
+        const cssRules = styleSheet.cssRules;
 
-      for (let j = 0; j < cssRules.length; j++) {
-        const cssRule = cssRules[j];
+        for (let j = 0; j < cssRules.length; j++) {
+          const cssRule = cssRules[j];
 
-        if (cssRule.selectorText && cssRule.selectorText.includes(className)) {
-          const ruleStyle = cssRule.style;
-          let ruleText = "";
+          if (
+            cssRule.selectorText &&
+            cssRule.selectorText.includes(className)
+          ) {
+            const ruleStyle = cssRule.style;
+            let ruleText = "";
 
-          for (let k = 0; k < ruleStyle.length; k++) {
-            const property = ruleStyle[k];
-            ruleText +=
-              property + ": " + ruleStyle.getPropertyValue(property) + "; ";
+            for (let k = 0; k < ruleStyle.length; k++) {
+              const property = ruleStyle[k];
+              ruleText +=
+                property + ": " + ruleStyle.getPropertyValue(property) + "; ";
+            }
+            // * class css
+            return ruleText;
           }
-          // * class css
-          return ruleText;
         }
       }
     }
   }
-}
-// ? before affter function end
+  // * -----------------------------------------------------
 
-// ! edit.. jq ?
+  // ! edit.. jq ?
 
-// // * create cookie
-// function setCookie(cookieName, cookieValue, numdaystilexpireasinteger) {
-//   const d = new Date();
-//   d.setTime(d.getTime() + numdaystilexpireasinteger * 24 * 60 * 60 * 1000);
-//   const expires = "expires=" + d.toUTCString();
-//   document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-// }
+  // // * create cookie
+  // function setCookie(cookieName, cookieValue, numdaystilexpireasinteger) {
+  //   const d = new Date();
+  //   d.setTime(d.getTime() + numdaystilexpireasinteger * 24 * 60 * 60 * 1000);
+  //   const expires = "expires=" + d.toUTCString();
+  //   document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+  // }
 
-// // * get cookie
-// function getCookie(cookieName) {
-//   const name = cookieName + "=";
-//   const decodedCookie = decodeURIComponent(document.cookie);
-//   const ca = decodedCookie.split(";");
-//   for (var i = 0; i < ca.length; i++) {
-//     const c = ca[i];
-//     while (c.charAt(0) == " ") {
-//       c = c.substring(1);
-//     }
-//     if (c.indexOf(name) == 0) {
-//       return c.substring(name.length, c.length);
-//     }
-//   }
-//   return "";
-// }
+  // // * get cookie
+  // function getCookie(cookieName) {
+  //   const name = cookieName + "=";
+  //   const decodedCookie = decodeURIComponent(document.cookie);
+  //   const ca = decodedCookie.split(";");
+  //   for (var i = 0; i < ca.length; i++) {
+  //     const c = ca[i];
+  //     while (c.charAt(0) == " ") {
+  //       c = c.substring(1);
+  //     }
+  //     if (c.indexOf(name) == 0) {
+  //       return c.substring(name.length, c.length);
+  //     }
+  //   }
+  //   return "";
+  // }
 
-// // * check coockie
-// function checkCookiesConfirmation() {
-//   const x = getCookie("cookies-confirmation"); //call cookie to get its value
-//   if (x != "") {
-//     $(".cookies-confirmation").remove();
-//   } else {
-//     setCookie("cookies-confirmation", "yes", 2);
-//     // * reel app remove comment
-//     // $(".cookies-confirmation").remove();
-//   }
-// }
+  // // * check coockie
+  // function checkCookiesConfirmation() {
+  //   const x = getCookie("cookies-confirmation"); //call cookie to get its value
+  //   if (x != "") {
+  //     $(".cookies-confirmation").remove();
+  //   } else {
+  //     setCookie("cookies-confirmation", "yes", 2);
+  //     // * reel app remove comment
+  //     // $(".cookies-confirmation").remove();
+  //   }
+  // }
 
-// // * start check coockie
-// setTimeout(function () {
-//   checkCookiesConfirmation();
-// }, 5000);
+  // // * start check coockie
+  // setTimeout(function () {
+  //   checkCookiesConfirmation();
+  // }, 5000);
+})();
