@@ -1,4 +1,4 @@
-## Before affter function
+## Before after function
 
 Item css is add before
 
