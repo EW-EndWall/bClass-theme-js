@@ -1,8 +1,10 @@
-## Before after function
+# Before after function
 
 Item css is add before
 
-# Before add class
+## Before add class
+
+### example
 
 ```html
 <div
@@ -20,7 +22,9 @@ cutom-create8546511:before {
 }
 ```
 
-# After add class
+## After add class
+
+### example
 
 ```html
 <div
