@@ -5,20 +5,18 @@
  */
 (() => {
   // * current year
-  document.querySelectorAll(".current-year").forEach((element) => {
-    element.innerText += new Date().getFullYear();
+  $(".current-year").each(function () {
+    $(this).text($(this).text() + new Date().getFullYear());
   });
   // * -----------------------------------------------------
   // * scroll x mouse | scroll x mouse hidden
-  document
-    .querySelectorAll("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden")
-    .forEach(function (element) {
-      element.addEventListener("wheel", function (event) {
-        if (event.deltaY === 0) return;
-        event.preventDefault();
-        this.scrollLeft += event.deltaY;
-      });
+  $("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden").each(function () {
+    $(this).on("wheel", function (event) {
+      if (event.originalEvent.deltaY === 0) return;
+      event.preventDefault();
+      this.scrollLeft += event.originalEvent.deltaY;
     });
+  });
   // * -----------------------------------------------------
   // * before affter function
   let elementsBefore = Array.from(
