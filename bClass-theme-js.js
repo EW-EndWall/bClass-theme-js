@@ -3,7 +3,7 @@
  * * Licensed (--)
  * * Update (--)
  */
-(() => {
+document.addEventListener("DOMContentLoaded", () => {
   // * current year
   $(".current-year").each(function () {
     $(this).text($(this).text() + new Date().getFullYear());
@@ -108,4 +108,4 @@
     }
   }
   // * -----------------------------------------------------
-})();
+});
