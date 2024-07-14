@@ -23,6 +23,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // * -----------------------------------------------------
 
+  // * Phone number formater
+  const formatPhoneNumber = (phoneNumber) => {
+    // * Remove all non-numeric characters except the plus sign
+    let cleaned = phoneNumber.replace(/[^\d]/g, "");
+
+    const cleanedLeng = cleaned.length;
+
+    if (cleanedLeng > 16) {
+      cleaned.slice(0, -1);
+    }
+    // * Extract parts of the number based on length
+    if (cleanedLeng > 9) {
+      const match = cleaned.match(/^(\d{3,4})(\d{3,4})(\d{2,4})(\d{2,4})$/);
+      return `(${match[1]}) ${match[2]} ${match[3]} ${match[4]}`;
+    }
+    if (cleanedLeng > 7) {
+      const match = cleaned.match(/^(\d{3,4})(\d{3,4})(\d{2,4})$/);
+      return `(${match[1]}) ${match[2]} ${match[3]}`;
+    }
+    if (cleanedLeng > 4) {
+      const match = cleaned.match(/^(\d{3,4})(\d{2,4})$/);
+      return `(${match[1]}) ${match[2]}`;
+    }
+    if (cleanedLeng > 2) {
+      const match = cleaned.match(/^(\d{3,4})$/);
+      return `(${match[1]})`;
+    }
+    return cleaned;
+  };
+
+  // * Adjust phone number spelling position
+  const phoneNumberSetCaretPosition = (elem, pos) => {
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      const range = elem.createTextRange();
+      range.move("character", pos);
+      range.select();
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    $("input[type=tel]").on("keyup", (event) => {
+      const input = event.target;
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+
+      const originalValue = input.value;
+      const formattedValue = formatPhoneNumber(originalValue);
+
+      // * Update input value without losing caret position
+      if (originalValue !== formattedValue) {
+        input.value = formattedValue;
+        const newPos = start + (formattedValue.length - originalValue.length);
+        phoneNumberSetCaretPosition(input, newPos);
+      }
+    });
+  });
+
+  // * -----------------------------------------------------
+
   const createCss = (getElemets, checkedUniqueClassList) => {
     // * create class func - check and create style
     const createClass = ({ className, classKey, classValue, prefixName }) => {
