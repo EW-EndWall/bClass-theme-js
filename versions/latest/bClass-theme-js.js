@@ -9,27 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".current-year").each((index, element) => {
     $(element).text($(element).text() + new Date().getFullYear());
   });
-
   // * -----------------------------------------------------
-
-  // * scroll x mouse | scroll x mouse hidden
-  $("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hidden").each((index, element) => {
+  // * scroll x mouse | scroll x mouse hide
+  $("ul.ul-li-x-scroll, ul.ul-li-x-scroll-hide").each((index, element) => {
     $(element).on("wheel", (event) => {
       if (event.originalEvent.deltaY === 0) return;
       event.preventDefault();
-      element.scrollLeft += event.originalEvent.deltaY;
+      event.currentTarget.scrollLeft += event.originalEvent.deltaY;
     });
   });
-
   // * -----------------------------------------------------
-
   // * Phone number formater
   const formatPhoneNumber = (phoneNumber) => {
     // * Remove all non-numeric characters except the plus sign
     let cleaned = phoneNumber.replace(/[^\d]/g, "");
-
     const cleanedLeng = cleaned.length;
-
     if (cleanedLeng > 16) {
       cleaned.slice(0, -1);
     }
@@ -52,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return cleaned;
   };
-
   // * Adjust phone number spelling position
   const phoneNumberSetCaretPosition = (elem, pos) => {
     if (elem.setSelectionRange) {
@@ -63,27 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
       range.select();
     }
   };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    $("input[type=tel]").on("keyup", (event) => {
-      const input = event.target;
-      const start = input.selectionStart;
-      const end = input.selectionEnd;
-
-      const originalValue = input.value;
-      const formattedValue = formatPhoneNumber(originalValue);
-
-      // * Update input value without losing caret position
-      if (originalValue !== formattedValue) {
-        input.value = formattedValue;
-        const newPos = start + (formattedValue.length - originalValue.length);
-        phoneNumberSetCaretPosition(input, newPos);
-      }
-    });
+  // * is input type tel to phone number edit
+  $("input[type=tel]").on("keyup", (event) => {
+    // * elements
+    const input = event.target;
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    // * val data  variable
+    const originalValue = input.value;
+    const formattedValue = formatPhoneNumber(originalValue);
+    // * Update input value without losing caret position
+    if (originalValue !== formattedValue) {
+      input.value = formattedValue;
+      const newPos = start + (formattedValue.length - originalValue.length);
+      phoneNumberSetCaretPosition(input, newPos);
+    }
   });
-
   // * -----------------------------------------------------
-
   const createCss = (getElemets, checkedUniqueClassList) => {
     // * create class func - check and create style
     const createClass = ({ className, classKey, classValue, prefixName }) => {
@@ -91,18 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
       let cssDynamicVal = classValue
         ? classValue
         : className.match(/\[(.*?)\]/)[1];
-
       // * is content
       if (classKey == "content") cssDynamicVal = `"${String(cssDynamicVal)}"`;
-
       // * create css
       const cssRule = (() => {
-        const createClassname = className.replace(/[\[\]#%!(),:]/g, "\\$&"); // * - [ ] # % ! ( ) , :
-
+        const createClassname = className.replace(/[\[\]#%!().,:]/g, "\\$&"); // * - [ ] # % ! ( ) . , :
         // * is check prefix - ex: before affter
         if (prefixName != null) {
           const prefixVal = prefixes[prefixName];
-
           // * match check prefix
           if (prefixVal != undefined) {
             checkedUniqueClassList.push(`${prefixName}:${className}`);
@@ -113,21 +98,17 @@ document.addEventListener("DOMContentLoaded", () => {
           return `.${createClassname}{${classKey}:${cssDynamicVal}}`;
         }
       })();
-
       // * add css rule
       cssRules += cssRule;
     };
-
     // * clear class unique
     let uniqueClassList = uniqueClasses(getElemets);
-
     // * checked list check
     if (checkedUniqueClassList.length) {
       uniqueClassList = uniqueClassList.filter(
         (item) => checkedUniqueClassList.indexOf(item) == -1
       );
     }
-
     // * check class css
     uniqueClassList.forEach((className, index) => {
       // * custom class - ex: hover:[color:red] or [color:red]
@@ -152,39 +133,40 @@ document.addEventListener("DOMContentLoaded", () => {
               });
             }
             break;
-
           case 1:
             console.error("incorrect: class value is not specified");
             break;
         }
         return;
       }
-
       // * is include -[
       const patternCheck = className.indexOf("-[");
       if (patternCheck !== -1) {
+        // * class find
         const findClass = className
           .substring(0, patternCheck + 1) // * find patern class
           .replace(/([^:]+):/, ""); // * : and before clear, bug fix
+        // * pattern find
         const findPattern = patterns.find((patternObj) =>
           findClass.startsWith(patternObj.pattern)
         );
-
         // * Match check
         if (findPattern != undefined) {
           const property = findPattern.property;
+          // * prefix find index
           let prefixCheck = className.indexOf(":");
-
+          // * is prefix index check
           if (prefixCheck != -1) {
             const prefixclassName = className.slice(prefixCheck + 1);
             const prefixName = className.slice(0, prefixCheck);
-
+            // * class create
             createClass({
               className: prefixclassName,
               classKey: property,
               prefixName: prefixName,
             });
           } else {
+            // * class create
             createClass({
               classKey: property,
               className: className,
@@ -192,13 +174,12 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       }
-
+      // * class list last add
       if (uniqueClassList.length - 1 == index) {
         addCssRule(cssRules);
       }
     });
   };
-
   // * get all elements
   const uniqueClasses = (elements) => {
     // * check checked class list
@@ -206,14 +187,13 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.forEach((element) => {
       classes.add([...element.classList]);
     });
-
+    // * result is to flat
     return Array.from(classes).flat();
   };
-
   // * create css style
   const addCssRule = (cssCode) => {
     let styleElement = document.getElementById("createCssStyle");
-    //* style element check
+    //* style element is null
     if (styleElement == null) {
       styleElement = document.createElement("style"); // * create <style>
       styleElement.type = "text/css"; // * type add
@@ -222,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     styleElement.innerText = cssCode; // * add css code
   };
-
   // * Patterns and related CSS properties
   let patterns = [
     { pattern: "w-", property: "width" },
@@ -254,7 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { pattern: "rounded-bl-", property: "border-bottom-left-radius" },
     { pattern: "rounded-br-", property: "border-bottom-right-radius" },
   ];
-
   // * Prefixes and their equivalents
   const prefixes = {
     hover: ":hover",
@@ -268,14 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
     disabled: ":disabled",
     enabled: ":enabled",
   };
-
   // * all create css rules
   let cssRules = "";
   let checkedUniqueClassList = [];
-
   // * load page create dynamic css
   createCss(document.querySelectorAll("*"), checkedUniqueClassList);
-
   // * Create the watcher and define a callback func
   new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -289,6 +264,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }).observe(document.body, { childList: true, subtree: true }); // * watch body changes
-
   // * -----------------------------------------------------
 });
