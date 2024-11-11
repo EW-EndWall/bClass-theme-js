@@ -1,6 +1,46 @@
 # Class Create
 
-Item css is add before
+Item css is add
+
+- .hover:w-[]
+- .focus:w-[]
+- .before:w-[]
+- .after:w-[]
+- .first-of-type:w-[]
+- .last-of-type:w-[]
+- .active:w-[]
+- .checked:w-[]
+- .disabled:w-[]
+- .enabled:w-[]
+
+- .w-[]				width
+- .h-[]				height
+- .m-[]				margin
+- .mt-[]			margin-top
+- .mb-[]			margin-bottom
+- .ml-[]			margin-left
+- .mr-[]			margin-right
+- .p-[]				padding
+- .pt-[]			padding-top
+- .pb-[]			padding-bottom
+- .pl-[]			padding-left
+- .pr-[]			padding-right
+- .top-[]			top
+- .bottom-[]			bottom
+- .left-[]			left
+- .right-[]			right
+- .bg-[]			background-color
+- .color-[]			color
+- .content-[]			css content
+- .transform-[]			transform
+- .font-size-[]			font-size
+- .gap-[]			gap
+- .filter-[]			filter
+- .rounded-[]			border-radius
+- .rounded-tl-[]		border-top-left-radius
+- .rounded-tr-[]		border-top-right-radius
+- .rounded-bl-[]		border-bottom-left-radius
+- .rounded-br-[]		border-bottom-right-radius
 
 ### example
 

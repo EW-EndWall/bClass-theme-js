@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // * check checked class list
     const classes = new Set();
     elements.forEach((element) => {
-      classes.add([...element.classList]);
+      classes.add([...element?.classList]);
     });
     // * result is to flat
     return Array.from(classes).flat();
