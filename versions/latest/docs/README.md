@@ -1,20 +1,16 @@
-<p align="center">
-  
-  <h1 align="center">
-    bClass theme js
-    <br/>
-    <br/>
-  </h3>
-    
-  <h2 align="center">
-    Documents
-    <br/>
-    <br/>
-  </h2>
-</p>
+## Available Documentation Languages
 
-## Table Of Contents
+|Language|File|
+|-|-|
+|🇹🇷 Turkish|[documentation-tr.md](documentation-tr.md)|
+|🇬🇧 English|[documentation-en.md](documentation-en.md)|
+|🇩🇪 German|[documentation-de.md](documentation-de.md)|
+|🇷🇺 Russian|[documentation-ru.md](documentation-ru.md)|
+|🇦🇪 Arabic|[documentation-ar.md](documentation-ar.md)|
 
-- [default](./default.md)
-- [class-create](./class-create.md)
-- [current-year](./current-year.md)
+## Usage
+
+For detailed implementation instructions, please refer to the documentation in your preferred language.
+
+
+

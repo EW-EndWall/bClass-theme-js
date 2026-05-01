@@ -81,8 +81,13 @@ document.addEventListener("readystatechange", () => {
         let cssDynamicVal = classValue
           ? classValue
           : className.match(/\[(.*?)\]/)[1];
-        // * is content
-        if (classKey == "content") cssDynamicVal = `"${String(cssDynamicVal)}"`;
+        // * is content, Securely process content property: allow safe CSS functions or wrap text in quotes
+        if (classKey == "content") {
+          let v = String(cssDynamicVal).trim();
+          cssDynamicVal = /^(attr|var|url|counters?)\([^;{}]*\)$/.test(v)
+            ? v
+            : `"${v.replace(/"/g, '\\"')}"`;
+        }
         // * create css
         const cssRule = (() => {
           const createClassname = className.replace(/[\[\]#%!().,:]/g, "\\$&"); // * - [ ] # % ! ( ) . , :
@@ -107,7 +112,7 @@ document.addEventListener("readystatechange", () => {
       // * checked list check
       if (checkedUniqueClassList.length) {
         uniqueClassList = uniqueClassList.filter(
-          (item) => checkedUniqueClassList.indexOf(item) == -1
+          (item) => checkedUniqueClassList.indexOf(item) == -1,
         );
       }
       // * check class css
@@ -150,7 +155,7 @@ document.addEventListener("readystatechange", () => {
             .replace(/([^:]+):/, ""); // * : and before clear, bug fix
           // * pattern find
           const findPattern = patterns.find((patternObj) =>
-            findClass.startsWith(patternObj.pattern)
+            findClass.startsWith(patternObj.pattern),
           );
           // * Match check
           if (findPattern != undefined) {
