@@ -1,6 +1,6 @@
-# bClass-theme-js
+# bClass theme js
 
-`bClass-theme-js` is a JavaScript library that dynamically generates CSS styles based on HTML class names. It provides developers with the ability to write CSS using helper classes similar to Tailwind CSS, but also offers additional features for dynamic content and responsive design.
+`bClass theme js` is a JavaScript library that dynamically generates CSS styles based on HTML class names. It provides developers with the ability to write CSS using helper classes similar to Tailwind CSS, but also offers additional features for dynamic content and responsive design.
 
 ## Features
 
@@ -12,15 +12,6 @@
 - **Dynamic Content Updates**: Automatically updates the current year.
 
 ## Usage
-
-### Basic Usage
-
-Add helper classes to your HTML elements:
-
-```html
-<div class="w-32 h-32 bg-red-500 rounded-lg"></div>
-<p class="text-blue-600 font-size-16">Hello World</p>
-```
 
 ### Helper Classes
 
@@ -162,4 +153,4 @@ Add the script to your HTML file:
 
 ## License
 
-This project is licensed under the Bik Public License 2.0 - see the [LICENSE](LICENSE) file for details.
+> Distributed under the Bik Public License 2.0 License. See [LICENSE](./../../../LICENSE) for more information.

@@ -1,6 +1,6 @@
-# bClass-theme-js
+# bClass theme js
 
-`bClass-theme-js`, HTML sınıf adlarına göre dinamik CSS stilleri oluşturan bir JavaScript kütüphanesidir. Geliştiricilere Tailwind CSS benzeri yardımcı sınıf kullanarak CSS yazma imkanı tanır, ancak dinamik içerik ve responsive tasarım için ek özellikler sunar.
+`bClass theme js`, HTML sınıf adlarına göre dinamik CSS stilleri oluşturan bir JavaScript kütüphanesidir. Geliştiricilere Tailwind CSS benzeri yardımcı sınıf kullanarak CSS yazma imkanı tanır, ancak dinamik içerik ve responsive tasarım için ek özellikler sunar.
 
 ## Özellikler
 
@@ -12,15 +12,6 @@
 - **Dinamik İçerik Güncellemesi**: Geçerli yılı otomatik olarak günceller
 
 ## Kullanım
-
-### Temel Kullanım
-
-HTML elementlerinize yardımcı sınıflar ekleyin:
-
-```html
-<div class="w-32 h-32 bg-red-500 rounded-lg"></div>
-<p class="text-blue-600 font-size-16">Merhaba Dünya</p>
-```
 
 ### Yardımcı Sınıflar
 
@@ -162,4 +153,4 @@ Scripti HTML dosyanıza ekleyin
 
 ## Lisans
 
-Bu proje Bik Public License 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](LICENSE) dosyasına bakınız.
+Bu proje Bik Public License 2.0 altında lisanslanmıştır - ayrıntılar için [LICENSE](./../../../LICENSE) dosyasına bakınız.
