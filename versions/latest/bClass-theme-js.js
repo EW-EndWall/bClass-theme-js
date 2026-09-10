@@ -80,7 +80,9 @@ document.addEventListener("readystatechange", () => {
         // * get css value
         let cssDynamicVal = classValue
           ? classValue
-          : className.match(/\[(.*?)\]/)[1];
+          : className.match(/\[(.*?)\]/)?.[1];
+        // * Stop to prevent invalid CSS from being generated if the value is empty.
+        if (!cssDynamicVal) return;
         // * is content, Securely process content property: allow safe CSS functions or wrap text in quotes
         if (classKey == "content") {
           let v = String(cssDynamicVal).trim();
@@ -96,27 +98,26 @@ document.addEventListener("readystatechange", () => {
             const prefixVal = prefixes[prefixName];
             // * match check prefix
             if (prefixVal != undefined) {
-              checkedUniqueClassList.push(`${prefixName}:${className}`);
               return `.${prefixName}\\:${createClassname}${prefixVal}{${classKey}:${cssDynamicVal}}`;
             }
           } else {
-            checkedUniqueClassList.push(className);
             return `.${createClassname}{${classKey}:${cssDynamicVal}}`;
           }
         })();
         // * add css rule
-        cssRules += cssRule;
+        if (cssRule) addCssRule(cssRule);
       };
       // * clear class unique
       let uniqueClassList = uniqueClasses(getElemets);
       // * checked list check
-      if (checkedUniqueClassList.length) {
+      if (checkedUniqueClassList.size > 0)
         uniqueClassList = uniqueClassList.filter(
-          (item) => checkedUniqueClassList.indexOf(item) == -1,
+          (item) => !checkedUniqueClassList.has(item),
         );
-      }
       // * check class css
       uniqueClassList.forEach((className, index) => {
+        // * preventing duplicate classes
+        checkedUniqueClassList.add(className);
         // * custom class - ex: hover:[color:red] or [color:red]
         const isCustom = className.match(/^(.*?:)?\[(.*?)\]|^\[(.*?)\](.*)$/);
         if (isCustom != null) {
@@ -181,10 +182,6 @@ document.addEventListener("readystatechange", () => {
             }
           }
         }
-        // * class list last add
-        if (uniqueClassList.length - 1 == index) {
-          addCssRule(cssRules);
-        }
       });
     };
     // * get all elements
@@ -192,22 +189,23 @@ document.addEventListener("readystatechange", () => {
       // * check checked class list
       const classes = new Set();
       elements.forEach((element) => {
-        classes.add([...element?.classList]);
+        if (element && element.classList) {
+          element.classList.forEach((className) => classes.add(className));
+        }
       });
-      // * result is to flat
-      return Array.from(classes).flat();
+      return Array.from(classes);
     };
     // * create css style
     const addCssRule = (cssCode) => {
-      let styleElement = document.getElementById("createCssStyle");
+      let styleElement = document.getElementById("bClass-createCssStyle");
       //* style element is null
       if (styleElement == null) {
         styleElement = document.createElement("style"); // * create <style>
         styleElement.type = "text/css"; // * type add
-        styleElement.id = "createCssStyle"; // * id add
+        styleElement.id = "bClass-createCssStyle"; // * id add
         document.head.appendChild(styleElement); // * add <style>
       }
-      styleElement.innerText = cssCode; // * add css code
+      styleElement.appendChild(document.createTextNode(cssCode)); // * add css code
     };
     // * Patterns and related CSS properties
     let patterns = [
@@ -254,22 +252,36 @@ document.addEventListener("readystatechange", () => {
       enabled: ":enabled",
     };
     // * all create css rules
-    let cssRules = "";
-    let checkedUniqueClassList = [];
+    let checkedUniqueClassList = new Set();
     // * load page create dynamic css
     createCss(document.querySelectorAll("*"), checkedUniqueClassList);
+    // * Timer reference (for performance optimization)
+    let cssTimeout;
     // * Create the watcher and define a callback func
     new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        // * It will work when an element is added inside the body.
-        if (
-          mutation.addedNodes.length > 0 &&
-          [mutation.addedNodes[0].nodeName].indexOf("#text") == -1 &&
-          [mutation.addedNodes[0].nodeName].indexOf("SCRIPT") == -1
-        ) {
-          createCss(document.querySelectorAll("*"), checkedUniqueClassList);
+      let shouldUpdate = false;
+      // * 1. We scan the incoming mutations and check if there is a valid HTML element.
+      for (let i = 0; i < mutations.length; i++) {
+        const mutation = mutations[i];
+        if (mutation.addedNodes.length > 0) {
+          const hasValidElement = Array.from(mutation.addedNodes).some(
+            (node) => node.nodeType === 1 && node.nodeName !== "SCRIPT",
+          );
+          if (hasValidElement) {
+            shouldUpdate = true;
+            break; // * Break the loop if we've found even one (avoid unnecessary processing).
+          }
         }
-      });
+      }
+      // * 2. If a valid element has been added, start the page scanning process.
+      if (shouldUpdate) {
+        // * Debounce (grouping) operation.
+        // * Even if React or Vue triggers it 50 times in rapid succession, we cancel the previous command and ensure it executes only once—15 milliseconds after the final operation.
+        clearTimeout(cssTimeout);
+        cssTimeout = setTimeout(() => {
+          createCss(document.querySelectorAll("*"), checkedUniqueClassList);
+        }, 15);
+      }
     }).observe(document.body, { childList: true, subtree: true }); // * watch body changes
     // * -----------------------------------------------------
   }
