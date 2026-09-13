@@ -146,6 +146,25 @@ document.addEventListener("readystatechange", () => {
           }
           return;
         }
+        // * Shorthand Spacing (m-1.5, p-5, hover:m-2)
+        // const isShorthand = className.match(
+        //   /^(?:([a-zA-Z0-9-]+):)?([a-zA-Z]+-)([0-9]+(?:\.[0-9]+)?)$/,
+        // );
+        // if (isShorthand != null) {
+        //   const shorthandPrefix = isShorthand[1]; //* E.g.: 'hover' (Otherwise, it returns undefined)
+        //   const shorthandPattern = isShorthand[2]; //* E.g.: 'm-'
+        //   const shorthandValue = isShorthand[3]; //*  E.g.: '1.5' or '5'
+
+        //   if (shorthandSpacing[shorthandPattern] !== undefined) {
+        //     createClass({
+        //       prefixName: shorthandPrefix,
+        //       className: shorthandPattern + shorthandValue,
+        //       classKey: shorthandSpacing[shorthandPattern],
+        //       classValue: `${shorthandValue}rem`,
+        //     });
+        //     return; // * Process complete, skip the next checks.
+        //   }
+        // }
         // * is include -[
         const patternCheck = className.indexOf("-[");
         const classEndCheck = className.indexOf("]"); // * bug fix
@@ -207,6 +226,18 @@ document.addEventListener("readystatechange", () => {
       }
       styleElement.appendChild(document.createTextNode(cssCode)); // * add css code
     };
+    // const shorthandSpacing = {
+    //   "m-": "margin",
+    //   "mt-": "margin-top",
+    //   "mb-": "margin-bottom",
+    //   "ml-": "margin-left",
+    //   "mr-": "margin-right",
+    //   "p-": "padding",
+    //   "pt-": "padding-top",
+    //   "pb-": "padding-bottom",
+    //   "pl-": "padding-left",
+    //   "pr-": "padding-right",
+    // };
     // * Patterns and related CSS properties
     let patterns = [
       { pattern: "w-", property: "width" },
