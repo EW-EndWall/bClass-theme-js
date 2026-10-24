@@ -19,15 +19,15 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
 
 #### Sınıf Referansları
 
-- **Genişlik & Yükseklik**: `w-[boyut]`, `h-[boyut]`
-- **Margin**: `m-[boyut]`, `mt-[boyut]`, `mb-[boyut]`, `ml-[boyut]`, `mr-[boyut]`
-- **Padding**: `p-[boyut]`, `pt-[boyut]`, `pb-[boyut]`, `pl-[boyut]`, `pr-[boyut]`
-- **Konumlandırma**: `top-[boyut]`, `bottom-[boyut]`, `left-[boyut]`, `right-[boyut]`
-- **Renkler**: `bg-[renk]`, `color-[renk]`
-- **Tipografi**: `font-size-[boyut]`, `text-[renk]`
-- **Dönüşümler**: `transform-[değer]`
-- **Kenar Yarıçapı**: `.rounded-[boyut]`, `.rounded-tl-[boyut]`, `.rounded-tr-[]`, `.rounded-bl-[]`, `.rounded-br-[]`
-- **Boşluk**: `gap-[boyut]`
+- **Genişlik & Yükseklik**: `.w-[boyut]`, `.h-[boyut]`
+- **Margin**: `.m-[boyut]`, `.mt-[boyut]`, `.mb-[boyut]`, `.ml-[boyut]`, `.mr-[boyut]`
+- **Padding**: `.p-[boyut]`, `.pt-[boyut]`, `.pb-[boyut]`, `.pl-[boyut]`, `.pr-[boyut]`
+- **Konumlandırma**: `.top-[boyut]`, `.bottom-[boyut]`, `.left-[boyut]`, `.right-[boyut]`
+- **Renkler**: `.bg-[renk]`, `.color-[renk]`
+- **Tipografi**: `.font-size-[boyut]`, `.text-[renk]`
+- **Dönüşümler**: `.transform-[değer]`
+- **Kenar Yarıçapı**: `.rounded-[boyut]`, `.rounded-tl-[boyut]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
+- **Boşluk**: `.gap-[boyut]`
 
 #### Durumlar ve Sözde Sınıflar
 

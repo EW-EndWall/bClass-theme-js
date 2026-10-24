@@ -19,15 +19,15 @@ Die Bibliothek bietet umfassende Unterstützung für verschiedene Klassen:
 
 #### Klassenreferenzen
 
-- **Breite & Höhe**: `w-[size]`, `h-[size]`
-- **Margin (Außenabstand)**: `m-[size]  mt-[size]`, `mb-[size]`, `ml-[size]`, `mr-[size]`
-- **Padding (Innenabstand)**: `p-[size]`, `pt-[size]`, `pb-[size]`, `pl-[size]`, `pr-[size]`
-- **Positionierung**: `top-[size]`, `bottom-[size]`, `left-[size]`, `right-[size]`
-- **Farben**: `bg-[color]`, `color-[color]`
-- **Typografie**: `font-size-[size]`, `text-[color]`
-- **Transformationen**: `transform-[value]`
+- **Breite & Höhe**: `.w-[size]`, `.h-[size]`
+- **Margin (Außenabstand)**: `.m-[size]`, `.mt-[size]`, `.mb-[size]`, `.ml-[size]`, `.mr-[size]`
+- **Padding (Innenabstand)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
+- **Positionierung**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
+- **Farben**: `.bg-[color]`, `.color-[color]`
+- **Typografie**: `.font-size-[size]`, `.text-[color]`
+- **Transformationen**: `.transform-[value]`
 - **Border Radius (Eckenradius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
-- **Gap (Abstand)**: `gap-[size]`
+- **Gap (Abstand)**: `.gap-[size]`
 
 #### Zustände und Pseudo-Klassen
 

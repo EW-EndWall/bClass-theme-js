@@ -19,15 +19,15 @@
 
 #### مراجع الفئات
 
-- **العرض والارتفاع**: `w-[size]`, `h-[size]`
-- **الهوامش (Margin)**: `m-[size]`, `mt-[size]`, `mb-[size]`, `ml-[size]`, `mr-[size]`
-- **الحشو (Padding)**: `p-[size]`, `pt-[size]`, `pb-[size]`, `pl-[size]`, `pr-[size]`
-- **تحديد المواقع**: `top-[size]`, `bottom-[size]`, `left-[size]`, `right-[size]`
-- **الألوان**: `bg-[color]`, `color-[color]`
-- **الخطوط (Typography)**: `font-size-[size]`, `text-[color]`
-- **التحويلات (Transforms)**: `transform-[value]`
+- **العرض والارتفاع**: `.w-[size]`, `.h-[size]`
+- **الهوامش (Margin)**: `.m-[size]`, `.mt-[size]`, `.mb-[size]`, `.ml-[size]`, `.mr-[size]`
+- **الحشو (Padding)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
+- **تحديد المواقع**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
+- **الألوان**: `.bg-[color]`, `.color-[color]`
+- **الخطوط (Typography)**: `.font-size-[size]`, `.text-[color]`
+- **التحويلات (Transforms)**: `.transform-[value]`
 - **نصف قطر الحدود (Border Radius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
-- **الفجوة (Gap)**: `gap-[size]`
+- **الفجوة (Gap)**: `.gap-[size]`
 
 #### الحالات والفئات الوهمية
 
@@ -44,7 +44,7 @@
 - **المحتوى (Content)**: `.content-[text]` أو وظائف ديناميكية:
   - `.content-[attr(data)]`
   - `.content-[var(--variable)]`
-  - `.do.content-[url(link)]`
+  - `.content-[url(link)]`
   - `.content-[counter(name)]`
   - `.content-[counters(name)]`
 - **الفلتر (Filter)**: `.filter-[value]` (مثل: blur, grayscale, invert، إلخ)

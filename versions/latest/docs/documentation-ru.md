@@ -19,15 +19,15 @@
 
 #### Справочник классов
 
-- **Ширина и Высота**: `w-[size]`, `h-[int]`
-- **Отступы (Margin)**: `m-[size]`, `mt-[size]`, `mb-[size]`, `ml-[size]`, `mr-[size]`
-- **Внутренние отступы (Padding)**: `p-[size]`, `pt-[size]`, `pb-[size]`, `pl-[size]`, `pr-[size]`
-- **Позиционирование**: `top-[size]`, `bottom-[size]`, `left-[size]`, `right-[size]`
-- **Цвета**: `bg-[color]`, `color-[color]`
-- **Типографика**: `font-size-[size]`, `text-[color]`
-- **Трансформации**: `transform-[value]`
+- **Ширина и Высота**: `.w-[size]`, `.h-[int]`
+- **Отступы (Margin)**: `.m-[size]`, `.mt-[size]`, `.mb-[size]`, `.ml-[size]`, `.mr-[size]`
+- **Внутренние отступы (Padding)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
+- **Позиционирование**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
+- **Цвета**: `.bg-[color]`, `.color-[color]`
+- **Типографика**: `.font-size-[size]`, `.text-[color]`
+- **Трансформации**: `.transform-[value]`
 - **Радиус границы (Border Radius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
-- **Интервал (Gap)**: `gap-[size]`
+- **Интервал (Gap)**: `.gap-[size]`
 
 #### Состояния и Псевдоклассы
 

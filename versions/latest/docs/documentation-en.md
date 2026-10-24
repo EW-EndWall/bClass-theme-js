@@ -19,15 +19,15 @@ The library provides extensive helper class support:
 
 #### Class References
 
-- **Width & Height**: `w-[size]`, `h-[size]`
-- **Margin**: `m-[size]`, `mt-[size]`, `mb-[size]`, `ml-[size]`, `mr-[size]`
-- **Padding**: `p-[size]`, `pt-[size]`, `pb-[size]`, `pl-[size]`, `pr-[size]`
-- **Positioning**: `top-[size]`, `bottom-[size]`, `left-[size]`, `right-[size]`
-- **Colors**: `bg-[color]`, `color-[color]`
-- **Typography**: `font-size-[size]`, `text-[color]`
-- **Transforms**: `transform-[value]`
-- **Border Radius**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[]`, `.rounded-bl-[]`, `.rounded-br-[]`
-- **Gap**: `gap-[size]`
+- **Width & Height**: `.w-[size]`, `.h-[size]`
+- **Margin**: `.m-[size]`, `.mt-[size]`, `.mb-[size]`, `.ml-[size]`, `.mr-[size]`
+- **Padding**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
+- **Positioning**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
+- **Colors**: `.bg-[color]`, `.color-[color]`
+- **Typography**: `.font-size-[size]`, `.text-[color]`
+- **Transforms**: `.transform-[value]`
+- **Border Radius**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
+- **Gap**: `.gap-[size]`
 
 #### States and Pseudo Classes
 
