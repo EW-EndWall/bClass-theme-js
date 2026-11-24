@@ -24,7 +24,7 @@ Die Bibliothek bietet umfassende Unterstützung für verschiedene Klassen:
 - **Padding (Innenabstand)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
 - **Positionierung**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
 - **Farben**: `.bg-[color]`, `.color-[color]`
-- **Typografie**: `.font-size-[size]`, `.text-[color]`
+- **Typografie**: `.font-size-[size]`
 - **Transformationen**: `.transform-[value]`
 - **Border Radius (Eckenradius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
 - **Gap (Abstand)**: `.gap-[size]`
@@ -35,18 +35,18 @@ Die Bibliothek bietet umfassende Unterstützung für verschiedene Klassen:
 - **Focus (Fokus)**: `.focus:w-[size]`
 - **Before (Vorher)**: `.before:w-[size]`
 - **After (Nachher)**: `.after:w-[size]`
-- **First of type (Erstes Element des Typs)**: `.first-of-type:w-[size]`
-- **Last of type (Letztes Element des Typs)**: `.last-of-type:w-[size]`
+- **First of type (Erstes Element des Typs)**: `.first:w-[size]`
+- **Last of type (Letztes Element des Typs)**: `.last:w-[size]`
 - **Active (Aktiv)**: `.active:w-[size]`
 - **Checked (Ausgewählt)**: `.checked:w-[size]`
 - **Disabled (Deaktiviert)**: `.disabled:w-[size]`
 - **Enabled (Aktiviert)**: `.enabled:w-[size]`
 - **Content (Inhalt)**: `.content-[text]` oder dynamische Funktionen:
   - `.content-[attr(data)]`
-  * `.content-[var(--variable)]`
-  * `.content-[url(link)]`
-  * `.content-[counter(name)]`
-  * `.content-[counters(name)]`
+  - `.content-[var(--variable)]`
+  - `.content-[url(link)]`
+  - `.content-[counter(name)]`
+  - `.content-[counters(name)]`
 - **Filter**: `.filter-[value]` (z. B. blur, grayscale, invert usw.)
 
 #### Beispiele
@@ -88,7 +88,7 @@ Die Bibliothek bietet umfassende Unterstützung für verschiedene Klassen:
 
 <!-- Variable (Var) und normaler Text-Content Nutzung -->
 <div class="after:content-[var(--warning-text)]">Successful</div>
-<div class="before:content-[✓_]">Confirm</hin}
+<div class="before:content-[✓_]">Confirm</div>
 
 <!-- Filter Nutzung -->
 <img
@@ -106,7 +106,7 @@ Beispiel: (1111) 1111 1111 1111
 ```html
 <div>
   <label for="phone">Telefon:</label>
-  <input type="tel" v-model="phone" id="phone" maxlength="21" required />
+  <input type="tel" id="phone" maxlength="21" required />
 </div>
 ```
 
@@ -115,7 +115,7 @@ Beispiel: (1111) 1111 1111 1111
 Listen mit Unterstützung für horizontales Scrollen:
 
 - `.ul-li-x-scroll`
-- `.ul-li-x-scroll-hidden`
+- `.ul-li-x-scroll-hide`
 
 ```html
 <ul class="ul-li-x-scroll">
@@ -124,7 +124,7 @@ Listen mit Unterstützung für horizontales Scrollen:
 </ul>
 ```
 
-# Aktuelles Jahr
+### Aktuelles Jahr
 
 Fügt das aktuelle Jahr ein.
 
@@ -148,8 +148,11 @@ Fügt das aktuelle Jahr ein.
 Fügen Sie das Skript zu Ihrer HTML-Datei hinzu:
 
 ```html
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="./bClass-theme-js.js"></script>
 ```
+
+> **Hinweis:** Die Bibliothek verwendet jQuery (`$`). jQuery muss daher **vor** `bClass-theme-js.js` geladen werden.
 
 ## Lizenz
 

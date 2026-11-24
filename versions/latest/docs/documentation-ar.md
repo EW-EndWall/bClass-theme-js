@@ -24,7 +24,7 @@
 - **الحشو (Padding)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
 - **تحديد المواقع**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
 - **الألوان**: `.bg-[color]`, `.color-[color]`
-- **الخطوط (Typography)**: `.font-size-[size]`, `.text-[color]`
+- **الخطوط (Typography)**: `.font-size-[size]`
 - **التحويلات (Transforms)**: `.transform-[value]`
 - **نصف قطر الحدود (Border Radius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
 - **الفجوة (Gap)**: `.gap-[size]`
@@ -32,11 +32,11 @@
 #### الحالات والفئات الوهمية
 
 - **التحويم (Hover)**: `.hover:w-[size]`
-- **التركيز (Focus)**: `.focus:w[size]`
+- **التركيز (Focus)**: `.focus:w-[size]`
 - **قبل (Before)**: `.before:w-[size]`
 - **بعد (After)**: `.after:w-[size]`
-- **أول عنصر من نوعه**: `.first-of-type:w-[size]`
-- **آخر عنصر من نوعه**: `.last-of-type:w-[size]`
+- **أول عنصر من نوعه**: `.first:w-[size]`
+- **آخر عنصر من نوعه**: `.last:w-[size]`
 - **نشط (Active)**: `.active:w-[size]`
 - **مُحدد (Checked)**: `.checked:w-[size]`
 - **معطل (Disabled)**: `.disabled:w-[size]`
@@ -106,7 +106,7 @@
 ```html
 <div>
   <label for="phone">الهاتف:</label>
-  <input type="tel" v-model="phone" id="phone" maxlength="21" required />
+  <input type="tel" id="phone" maxlength="21" required />
 </div>
 ```
 
@@ -115,7 +115,7 @@
 القوائم التي تدعم التمرير الأفقي:
 
 - `.ul-li-x-scroll`
-- `.ul-li-x-scroll-hidden`
+- `.ul-li-x-scroll-hide`
 
 ```html
 <ul class="ul-li-x-scroll">
@@ -124,7 +124,7 @@
 </ul>
 ```
 
-# السنة الحالية
+### السنة الحالية
 
 إدراج السنة الحالية.
 
@@ -148,8 +148,11 @@
 أضف السكربت إلى ملف HTML الخاص بك:
 
 ```html
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="./bClass-theme-js.js"></script>
 ```
+
+> **ملاحظة:** تعتمد المكتبة على jQuery (`$`)، لذا يجب تحميل jQuery **قبل** `bClass-theme-js.js`.
 
 ## الترخيص
 

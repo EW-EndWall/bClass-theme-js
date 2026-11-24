@@ -24,7 +24,7 @@ The library provides extensive helper class support:
 - **Padding**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
 - **Positioning**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
 - **Colors**: `.bg-[color]`, `.color-[color]`
-- **Typography**: `.font-size-[size]`, `.text-[color]`
+- **Typography**: `.font-size-[size]`
 - **Transforms**: `.transform-[value]`
 - **Border Radius**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
 - **Gap**: `.gap-[size]`
@@ -35,8 +35,8 @@ The library provides extensive helper class support:
 - **Focus**: `.focus:w-[size]`
 - **Before**: `.before:w-[size]`
 - **After**: `.after:w-[size]`
-- **First of type**: `.first-of-type:w-[size]`
-- **Last of type**: `.last-of-type:w-[size]`
+- **First of type**: `.first:w-[size]`
+- **Last of type**: `.last:w-[size]`
 - **Active**: `.active:w-[size]`
 - **Checked**: `.checked:w-[size]`
 - **Disabled**: `.disabled:w-[size]`
@@ -100,13 +100,13 @@ The library provides extensive helper class support:
 
 ### Phone Number Formatting
 
-Phone numbers are automatically formatted in "type tel" fields:
+Phone numbers are automatically formatted in `type="tel"` fields:
 Example: (1111) 1111 1111 1111
 
 ```html
 <div>
   <label for="phone">Phone:</label>
-  <input type="tel" v-model="phone" id="phone" maxlength="21" required />
+  <input type="tel" id="phone" maxlength="21" required />
 </div>
 ```
 
@@ -115,7 +115,7 @@ Example: (1111) 1111 1111 1111
 Lists with horizontal scrolling support:
 
 - `.ul-li-x-scroll`
-- `.ul-li-x-scroll-hidden`
+- `.ul-li-x-scroll-hide`
 
 ```html
 <ul class="ul-li-x-scroll">
@@ -124,7 +124,7 @@ Lists with horizontal scrolling support:
 </ul>
 ```
 
-# Current Year
+### Current Year
 
 Insert the current year.
 
@@ -148,9 +148,12 @@ Insert the current year.
 Add the script to your HTML file:
 
 ```html
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="./bClass-theme-js.js"></script>
 ```
 
+> **Note:** The library depends on jQuery (`$`), so jQuery must be loaded **before** `bClass-theme-js.js`.
+
 ## License
 
-> Distributed under the Bik Public License 2.0 License. See [LICENSE](./../../../LICENSE) for more information.
+> Distributed under the Bik Public License 2.0. See [LICENSE](./../../../LICENSE) for more information.

@@ -24,9 +24,9 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
 - **Padding**: `.p-[boyut]`, `.pt-[boyut]`, `.pb-[boyut]`, `.pl-[boyut]`, `.pr-[boyut]`
 - **Konumlandırma**: `.top-[boyut]`, `.bottom-[boyut]`, `.left-[boyut]`, `.right-[boyut]`
 - **Renkler**: `.bg-[renk]`, `.color-[renk]`
-- **Tipografi**: `.font-size-[boyut]`, `.text-[renk]`
+- **Tipografi**: `.font-size-[boyut]`
 - **Dönüşümler**: `.transform-[değer]`
-- **Kenar Yarıçapı**: `.rounded-[boyut]`, `.rounded-tl-[boyut]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
+- **Kenar Yarıçapı**: `.rounded-[boyut]`, `.rounded-tl-[boyut]`, `.rounded-tr-[boyut]`, `.rounded-bl-[boyut]`, `.rounded-br-[boyut]`
 - **Boşluk**: `.gap-[boyut]`
 
 #### Durumlar ve Sözde Sınıflar
@@ -35,8 +35,8 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
 - **Focus**: `.focus:w-[boyut]`
 - **Before**: `.before:w-[boyut]`
 - **After**: `.after:w-[boyut]`
-- **First of type**: `.first-of-type:w-[boyut]`
-- **Last of type**: `.last-of-type:w-[boyut]`
+- **First of type**: `.first:w-[boyut]`
+- **Last of type**: `.last:w-[boyut]`
 - **Active**: `.active:w-[boyut]`
 - **Checked**: `.checked:w-[boyut]`
 - **Disabled**: `.disabled:w-[boyut]`
@@ -49,7 +49,7 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
   - `.content-[counters(isim)]`
 - **Filter**: `.filter-[değer]` (Örn: blur, grayscale, invert vb.)
 
-#### örnek
+#### Örnekler
 
 [codepen](https://codepen.io/Endwall/pen/xxePaxK)
 
@@ -100,13 +100,13 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
 
 ### Telefon Numarası Biçimlendirme
 
-"type tel" alanları için telefon numaraları otomatik biçimlendirilir:
+`type="tel"` alanları için telefon numaraları otomatik biçimlendirilir:
 Örnek : (1111) 1111 1111 1111
 
 ```html
 <div>
-  <label for="phone">Phone:</label>
-  <input type="tel" v-model="phone" id="phone" maxlength="21" required />
+  <label for="phone">Telefon:</label>
+  <input type="tel" id="phone" maxlength="21" required />
 </div>
 ```
 
@@ -115,7 +115,7 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
 Yatay kaydırma desteği ile listeler:
 
 - `.ul-li-x-scroll`
-- `.ul-li-x-scroll-hidden`
+- `.ul-li-x-scroll-hide`
 
 ```html
 <ul class="ul-li-x-scroll">
@@ -124,7 +124,7 @@ Yatay kaydırma desteği ile listeler:
 </ul>
 ```
 
-# Mevcut yıl
+### Geçerli Yıl
 
 Geçerli yılı ekleyin.
 
@@ -145,11 +145,14 @@ Geçerli yılı ekleyin.
 
 ## Kurulum
 
-Scripti HTML dosyanıza ekleyin
+Scripti HTML dosyanıza ekleyin:
 
 ```html
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="./bClass-theme-js.js"></script>
 ```
+
+> **Not:** Kütüphane jQuery (`$`) kullanır; bu yüzden jQuery, `bClass-theme-js.js` dosyasından **önce** yüklenmelidir.
 
 ## Lisans
 

@@ -19,12 +19,12 @@
 
 #### Справочник классов
 
-- **Ширина и Высота**: `.w-[size]`, `.h-[int]`
+- **Ширина и Высота**: `.w-[size]`, `.h-[size]`
 - **Отступы (Margin)**: `.m-[size]`, `.mt-[size]`, `.mb-[size]`, `.ml-[size]`, `.mr-[size]`
 - **Внутренние отступы (Padding)**: `.p-[size]`, `.pt-[size]`, `.pb-[size]`, `.pl-[size]`, `.pr-[size]`
 - **Позиционирование**: `.top-[size]`, `.bottom-[size]`, `.left-[size]`, `.right-[size]`
 - **Цвета**: `.bg-[color]`, `.color-[color]`
-- **Типографика**: `.font-size-[size]`, `.text-[color]`
+- **Типографика**: `.font-size-[size]`
 - **Трансформации**: `.transform-[value]`
 - **Радиус границы (Border Radius)**: `.rounded-[size]`, `.rounded-tl-[size]`, `.rounded-tr-[size]`, `.rounded-bl-[size]`, `.rounded-br-[size]`
 - **Интервал (Gap)**: `.gap-[size]`
@@ -35,12 +35,12 @@
 - **Focus (Фокус)**: `.focus:w-[size]`
 - **Before (До)**: `.before:w-[size]`
 - **After (После)**: `.after:w-[size]`
-- **First of type (Первый в типе)**: `.first-of-type:w-[size]`
-- **Last of type (Последний в типе)**: `.last-of-type:w-[size]`
+- **First of type (Первый в типе)**: `.first:w-[size]`
+- **Last of type (Последний в типе)**: `.last:w-[size]`
 - **Active (Активный)**: `.active:w-[size]`
 - **Checked (Отмечен)**: `.checked:w-[size]`
 - **Disabled (Отключен)**: `.disabled:w-[size]`
-- **Enabled (Включен)**: `.enabled:w-[int]`
+- **Enabled (Включен)**: `.enabled:w-[size]`
 - **Контент**: `.content-[text]` или динамические функции:
   - `.content-[attr(data)]`
   - `.content-[var(--variable)]`
@@ -106,7 +106,7 @@
 ```html
 <div>
   <label for="phone">Телефон:</label>
-  <input type="tel" v-model="phone" id="phone" maxlength="21" required />
+  <input type="tel" id="phone" maxlength="21" required />
 </div>
 ```
 
@@ -115,7 +115,7 @@
 Списки с поддержкой горизонтальной прокрутки:
 
 - `.ul-li-x-scroll`
-- `.ul-li-x-scroll-hidden`
+- `.ul-li-x-scroll-hide`
 
 ```html
 <ul class="ul-li-x-scroll">
@@ -124,7 +124,7 @@
 </ul>
 ```
 
-# Текущий год
+### Текущий год
 
 Вставьте текущий год.
 
@@ -148,8 +148,11 @@
 Добавьте скрипт в ваш HTML-файл:
 
 ```html
-<script src="./bClass-template-js.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="./bClass-theme-js.js"></script>
 ```
+
+> **Примечание:** библиотека использует jQuery (`$`), поэтому jQuery необходимо подключить **до** `bClass-theme-js.js`.
 
 ## Лицензия
 
