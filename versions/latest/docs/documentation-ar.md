@@ -46,7 +46,6 @@
   - `.content-[var(--variable)]`
   - `.content-[url(link)]`
   - `.content-[counter(name)]`
-  - `.content-[counters(name)]`
 - **الفلتر (Filter)**: `.filter-[value]` (مثل: blur, grayscale, invert، إلخ)
 
 #### أمثلة

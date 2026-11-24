@@ -46,7 +46,6 @@ Kütüphane geniş bir yardımcı sınıf desteğine sahiptir:
   - `.content-[var(--değişken)]`
   - `.content-[url(bağlantı)]`
   - `.content-[counter(isim)]`
-  - `.content-[counters(isim)]`
 - **Filter**: `.filter-[değer]` (Örn: blur, grayscale, invert vb.)
 
 #### Örnekler

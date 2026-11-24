@@ -46,7 +46,6 @@ The library provides extensive helper class support:
   - `.content-[var(--variable)]`
   - `.content-[url(link)]`
   - `.content-[counter(name)]`
-  - `.content-[counters(name)]`
 - **Filter**: `.filter-[value]` (e.g., blur, grayscale, invert, etc.)
 
 #### Examples

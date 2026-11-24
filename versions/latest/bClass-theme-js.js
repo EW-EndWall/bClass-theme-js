@@ -23,11 +23,8 @@ document.addEventListener("readystatechange", () => {
     // * Phone number formater
     const formatPhoneNumber = (phoneNumber) => {
       // * Remove all non-numeric characters except the plus sign
-      let cleaned = phoneNumber.replace(/[^\d]/g, "");
+      let cleaned = phoneNumber.replace(/[^\d]/g, "").slice(0, 16); // * max 16 digits
       const cleanedLeng = cleaned.length;
-      if (cleanedLeng > 16) {
-        cleaned.slice(0, -1);
-      }
       // * Extract parts of the number based on length
       if (cleanedLeng > 9) {
         const match = cleaned.match(/^(\d{3,4})(\d{3,4})(\d{2,4})(\d{2,4})$/);
@@ -86,9 +83,9 @@ document.addEventListener("readystatechange", () => {
         // * is content, Securely process content property: allow safe CSS functions or wrap text in quotes
         if (classKey == "content") {
           let v = String(cssDynamicVal).trim();
-          cssDynamicVal = /^(attr|var|url|counters?)\([^;{}]*\)$/.test(v)
+          cssDynamicVal = /^(attr|var|url|counter)\([^;{}]*\)$/.test(v)
             ? v
-            : `"${v.replace(/"/g, '\\"')}"`;
+            : `"${v.replace(/_/g, " ").replace(/"/g, '\\"')}"`;
         }
         // * create css
         const cssRule = (() => {
@@ -174,9 +171,10 @@ document.addEventListener("readystatechange", () => {
             .substring(0, patternCheck + 1) // * find patern class
             .replace(/([^:]+):/, ""); // * : and before clear, bug fix
           // * pattern find
-          const findPattern = patterns.find((patternObj) =>
-            findClass.startsWith(patternObj.pattern),
-          );
+          // * longest matching pattern wins (rounded-tl- must beat rounded-)
+          const findPattern = patterns
+            .filter((patternObj) => findClass.startsWith(patternObj.pattern))
+            .sort((a, b) => b.pattern.length - a.pattern.length)[0];
           // * Match check
           if (findPattern != undefined) {
             const property = findPattern.property;

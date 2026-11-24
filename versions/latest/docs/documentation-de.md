@@ -46,7 +46,6 @@ Die Bibliothek bietet umfassende Unterstützung für verschiedene Klassen:
   - `.content-[var(--variable)]`
   - `.content-[url(link)]`
   - `.content-[counter(name)]`
-  - `.content-[counters(name)]`
 - **Filter**: `.filter-[value]` (z. B. blur, grayscale, invert usw.)
 
 #### Beispiele
